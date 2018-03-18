@@ -1,4 +1,4 @@
-﻿namespace Tcc.Dominio.Enums
+﻿namespace Tcc.Dominio.SharedContext.Enums
 {
     public enum Sexo
     {
