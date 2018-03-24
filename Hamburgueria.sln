@@ -1,35 +1,48 @@
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{4B33A9C6-9957-494D-8BA8-6B556FBB1C81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D545D955-8041-4829-82E3-C2BB57530F85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tcc.Dominio", "src\Tcc.Dominio\Tcc.Dominio.csproj", "{CB23E35B-7FB2-437F-909E-0015FE20E769}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCC.Apresentacao.WebAPI", "src\TCC.Apresentacao.WebAPI\TCC.Apresentacao.WebAPI.csproj", "{0C08BA96-3317-4B1A-95BB-03B4646173BE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentacao", "1 - Apresentacao", "{11093885-6ABE-4D2D-A3B8-DCF14144A2C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "Shared\shared.csproj", "{0085A532-B571-4928-8A15-6F56CB54BB0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CB23E35B-7FB2-437F-909E-0015FE20E769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB23E35B-7FB2-437F-909E-0015FE20E769}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB23E35B-7FB2-437F-909E-0015FE20E769}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB23E35B-7FB2-437F-909E-0015FE20E769}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C08BA96-3317-4B1A-95BB-03B4646173BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C08BA96-3317-4B1A-95BB-03B4646173BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C08BA96-3317-4B1A-95BB-03B4646173BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C08BA96-3317-4B1A-95BB-03B4646173BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{CB23E35B-7FB2-437F-909E-0015FE20E769} = {4B33A9C6-9957-494D-8BA8-6B556FBB1C81}
-		{0C08BA96-3317-4B1A-95BB-03B4646173BE} = {11093885-6ABE-4D2D-A3B8-DCF14144A2C5}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|x64.ActiveCfg = Debug|x64
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|x64.Build.0 = Debug|x64
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|x86.ActiveCfg = Debug|x86
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Debug|x86.Build.0 = Debug|x86
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|x64.ActiveCfg = Release|x64
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|x64.Build.0 = Release|x64
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|x86.ActiveCfg = Release|x86
+		{D545D955-8041-4829-82E3-C2BB57530F85}.Release|x86.Build.0 = Release|x86
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|x64.ActiveCfg = Debug|x64
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|x64.Build.0 = Debug|x64
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|x86.ActiveCfg = Debug|x86
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Debug|x86.Build.0 = Debug|x86
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|x64.ActiveCfg = Release|x64
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|x64.Build.0 = Release|x64
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|x86.ActiveCfg = Release|x86
+		{0085A532-B571-4928-8A15-6F56CB54BB0B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
