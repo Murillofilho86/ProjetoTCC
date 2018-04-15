@@ -9,6 +9,8 @@ const router = express.Router();
 
 mongoose.connect('mongodb://bancotcc:bancotcc@ds014368.mlab.com:14368/bancotcc');
 
+const Product = require('./models/product');
+
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
 

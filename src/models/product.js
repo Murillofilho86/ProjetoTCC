@@ -6,12 +6,12 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     title: {
         type: String,
-        required: true,
+        required: [true, 'O titulo é obrigatório.'],
         trim: true
     },
     slug: {
         type: String,
-        required: true,
+        required: [true, 'O slug é obrigatório.'],
         trim: true,
         index: true,
         unique: true
@@ -26,7 +26,7 @@ const schema = new Schema({
         required: true
     },
     active: {
-        type: boolean,
+        type: Boolean,
         required: true,
         default: true
     },
