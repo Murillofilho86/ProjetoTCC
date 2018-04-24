@@ -69,6 +69,11 @@ exports.put = async (req, res, next) => {
 
 exports.authenticate = async (req, res, next) => {
     try {
+
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+        const data = await authService.decodetoken(token);
+
+
         const user = await repository.authenticate({
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY)
@@ -80,7 +85,42 @@ exports.authenticate = async (req, res, next) => {
             });
             return;
         }
-        const token = await authService.generateToken({
+        const tokenData = await authService.generateToken({
+            id: user._id,
+            email: user.email,
+            name: user.name
+        });
+
+        res.status(201).send({
+            token: token,
+            data:{
+                email: user.email,
+                name: user.name
+            }
+        });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar requisição'
+        });
+    }
+};
+
+
+exports.refreshToken = async (req, res, next) => {
+    try {
+
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+        const data = await authService.decodetoken(token);
+
+        const user = await repository.getById(data.id);
+
+        if(!user){
+            res.status(404).send({
+                message: 'Usuário não encontrado'
+            });
+            return;
+        }
+        const tokenData = await authService.generateToken({
             id: user._id,
             email: user.email,
             name: user.name

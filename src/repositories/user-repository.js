@@ -1,3 +1,5 @@
+import { SSL_OP_LEGACY_SERVER_CONNECT } from 'constants';
+
 'use strict';
 
 const mongoose = require('mongoose');
@@ -45,3 +47,8 @@ exports.authenticate = async(data) => {
         });
         return res;
 };
+
+exports.getById = async(data) => {
+    const res = await User.findById(id);
+    return res;
+}
