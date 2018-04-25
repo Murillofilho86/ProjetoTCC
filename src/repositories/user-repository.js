@@ -1,5 +1,3 @@
-import { SSL_OP_LEGACY_SERVER_CONNECT } from 'constants';
-
 'use strict';
 
 const mongoose = require('mongoose');
