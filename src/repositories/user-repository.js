@@ -6,7 +6,7 @@ const User = mongoose.model('User');
 exports.get = async() => {
     const res = await User.find({
             active: true
-        }, 'title price slug');
+        }, 'name email');
         return res;
 };
 
