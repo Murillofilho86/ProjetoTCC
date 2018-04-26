@@ -15,7 +15,13 @@ const schema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    roles: [{
+        type: String,
+        require: true,
+        enum: ['customer', 'admin'],
+        default: 'customer'
+    }]
 });
 
 module.exports = mongoose.model('User', schema);

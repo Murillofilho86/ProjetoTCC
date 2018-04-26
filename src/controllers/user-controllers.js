@@ -20,14 +20,14 @@ exports.post = async (req, res, next) => {
     try {
         await repository.create({
             name: req.body.name,
-            name: req.body.name,
             email: req.body.email,
-            password: md5(req.body.password + global.SALT_KEY)
+            password: md5(req.body.password + global.SALT_KEY),
+            roles: ["user"]
         });
 
         emailService.send(
             req.body.email,
-            'Bem vindo novo Hamburgueiro!',
+            'Bem-vindo ao maravilhoso mundo do hamburguer!!!',
             global.EMAIL_TMPL.replace('{0}',
                 req.body.name)
         );
@@ -70,35 +70,33 @@ exports.put = async (req, res, next) => {
 exports.authenticate = async (req, res, next) => {
     try {
 
-        const token = req.body.token || req.query.token || req.headers['x-access-token'];
-        const data = await authService.decodetoken(token);
-
-
         const user = await repository.authenticate({
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY)
         });
 
-        if(!user){
+        if (!user) {
             res.status(404).send({
                 message: 'Usuário ou senha inválidos '
             });
             return;
         }
-        const tokenData = await authService.generateToken({
+        const token = await authService.generateToken({
             id: user._id,
             email: user.email,
-            name: user.name
+            name: user.name,
+            roles: user.roles
         });
 
         res.status(201).send({
             token: token,
-            data:{
+            data: {
                 email: user.email,
-                name: user.name
+                name: user.name,
             }
         });
     } catch (e) {
+        console.log(e);
         res.status(500).send({
             message: 'Falha ao processar requisição'
         });
@@ -114,7 +112,7 @@ exports.refreshToken = async (req, res, next) => {
 
         const user = await repository.getById(data.id);
 
-        if(!user){
+        if (!token) {
             res.status(404).send({
                 message: 'Usuário não encontrado'
             });
@@ -123,14 +121,15 @@ exports.refreshToken = async (req, res, next) => {
         const tokenData = await authService.generateToken({
             id: user._id,
             email: user.email,
-            name: user.name
+            name: user.name,
+            roles: user.roles
         });
 
         res.status(201).send({
             token: token,
-            data:{
+            data: {
                 email: user.email,
-                name: user.name
+                name: user.name,
             }
         });
     } catch (e) {
@@ -139,3 +138,5 @@ exports.refreshToken = async (req, res, next) => {
         });
     }
 };
+
+
